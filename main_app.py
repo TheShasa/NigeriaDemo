@@ -60,6 +60,8 @@ class Main(tk.Frame):
         self.db_button_reset.place(relx=0.5, rely=0.8, relwidth=0.7, anchor='n')
         self.db_button_predict = tk.Button(self, text="Predict the name", compound=tk.TOP, command=self.predict)
         self.db_button_predict.place(relx=0.5, rely=0.9, relwidth=0.7, anchor='n')
+        if not os.path.exists(os.path.join(self.FOLDER, 'all_records')):
+            os.mkdir(os.path.join(self.FOLDER, 'all_records'))
 
     def load_model(self):
         model = vggvox_model()
